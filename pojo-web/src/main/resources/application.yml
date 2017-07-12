@@ -18,6 +18,14 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
 
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: text/xml,application/xml,application/json
+      min-request-size: 1024
+
+
 # Url
 #spring:
 #  zipkin:
