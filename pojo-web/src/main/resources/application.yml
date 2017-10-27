@@ -25,6 +25,10 @@ feign:
       mime-types: text/xml,application/xml,application/json
       min-request-size: 1024
 
+server:
+  error:
+    whitelabel:
+      enabled: false
 
 # Url
 #spring:

@@ -11,7 +11,7 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
  * Created by Atom on 2017/7/12.
  */
 @EnableFeignClients
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @SpringBootApplication
 public class PojoWebApplication {
 

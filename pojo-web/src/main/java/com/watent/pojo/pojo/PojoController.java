@@ -2,22 +2,27 @@ package com.watent.pojo.pojo;
 
 import com.watent.pojo.model.Pojo;
 import com.watent.pojo.protocol.PojoManagerClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Pojo Controller
  * <p>
- * Created by Atom on 2017/7/12.
+ *
+ * @author Atom
+ * @date 2017/7/12
  */
 @RestController
 @RequestMapping("/pojo")
 public class PojoController {
+
+    private static final Logger logger = LoggerFactory.getLogger(PojoController.class);
 
     @Resource
     private PojoManagerClient pojoManagerClient;
@@ -32,4 +37,16 @@ public class PojoController {
         return pojoManagerClient.findByName(name);
     }
 
+    /**
+     * ref http://www.tianshouzhi.com/api/tutorials/springboot/89
+     */
+    @ResponseBody
+    @GetMapping("/test")
+    public Map<String, Object> test() {
+        logger.info("visit test");
+        Map<String, Object> map = new HashMap<>();
+        map.put("response", true);
+        map.put("data", "test ok");
+        return map;
+    }
 }
